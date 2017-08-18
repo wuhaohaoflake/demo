@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.demo{
+				height: 200px;
+				float: left;
+				margin-left: 500px;
+				position: relative;
+			}
+			input{
+				width: 50px;
+				height: 50px;
+				display: inline-block;
+				float: left;
+				margin-left: 10px;
+				outline: none;
+				text-align: center;
+				line-height: 50px;
+				font-size: 35px;
+				font-weight: 800;
+			}
+			.border{
+				border: 1px solid orangered;
+			}
+			#space{
+				margin-right: 30px;
+			}
+			#spa{
+				font-size: 50px;
+				position: absolute;
+				left: 198px;
+				color:#C0C0C0;
+				height: 56px;
+				line-height: 56px;
+			}
+			p{}
+		</style>
+		<script src="jquery-1.9.1.min.js"></script>
+	</head>
+	<body>
+		<div class="demo" id="demo">
+			<input type="text" class="border" autofocus="autofocus" maxlength="1" id="dy" />
+			<input type="text" maxlength="1"/>
+			<input type="text" maxlength="1"/ id="space">
+			<input type="text" maxlength="1"/>
+			<input type="text" maxlength="1"/>
+			<input type="text" maxlength="1"/>
+			<span id="spa">-</span>
+		</div>
+		<p><span id="time"></span></p>
+		<script>
+				var wrap=document.getElementById("demo");
+                var txts = wrap.getElementsByTagName("input");
+                for(var i = 0; i<txts.length;i++){
+                    var t = txts[i];
+                    t.index = i;
+                    t.setAttribute("readonly", true);
+                    t.onkeyup=function(){
+                        this.value=this.value.replace(/\D/g,'');
+                        if(this.value==""){
+                        	return false;
+                        }
+                        var next = this.index + 1;
+                        var last=this.index;
+                        if(next > txts.length - 1) return;
+                        txts[next].removeAttribute("readonly");
+                        txts[next].focus();
+                        txts[next].className="border";
+                        txts[last].classList.remove("border");
+                    },
+                    t.onkeydown=function(){
+                    	var oEvent = window.event;
+						if (oEvent.keyCode == 8) {
+					 	    next = this.index - 1;
+                        	var last=this.index;
+                        	if(next < 0) return;
+	                    	txts[next].removeAttribute("readonly");
+	                        txts[next].focus();
+	                        txts[next].className="border";
+	                        txts[last].classList.remove("border");
+						}
+                    }
+                }
+                txts[0].removeAttribute("readonly");
+
+			
+
+
+            var num=59;
+            var flag;
+           	$("#time").on("click",function(){
+           		if(flag==false){
+           			return false;
+           		}else{
+           				$("#time").text(59);
+		           		num=$("#time").text();
+           				flag=false;
+               			var timer=setInterval(function(){
+               			num--;
+               			$("#time").text(num);
+               			if(num<=0){
+               				clearInterval(timer);
+               				$("#time").text("点击获取");
+               				flag=true;
+               			}
+           			},1000);
+           		}	
+           	});
+               	var timer=setInterval(function(){
+               			num--;
+               			$("#time").text(num);
+               			if(num<=0){
+               				clearInterval(timer);
+               				$("#time").text("点击获取");
+               			}
+               		},1000);
+		</script>
+	</body>
+</html>
