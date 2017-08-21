@@ -34,10 +34,16 @@ $(function () {
 		    }  
 	
 	    }
+	
+	var select = $('.city-picker-select').cityPicker({
+	    dataJson: cityData,
+	    renderMode: false,
+	    autoSelected: false
+	});
     //加载城市事件
     $.ajax({
 		type:"get",
-		url:"city.json",
+		url:"js/city.json",
 		success: function(data){
 			$.each(data,function(i,item){
 				var lists="<li><a href=#"+item.name+"1>"+item.name+"</a></li>";
