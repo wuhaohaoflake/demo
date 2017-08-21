@@ -1,0 +1,36 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta name="renderer" content="webkit">
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<link href="car_select.css" rel="stylesheet" type="text/css">
+<title>城市选择</title>
+</head>
+<body>
+	<div class="mid w1100">
+		<div class="borrow">
+			<label for="">借款金额：</label>&nbsp;&nbsp;<input type="text" placeholder="您需要多少资金"/><br />
+			<label for="">车辆型号：</label>&nbsp;&nbsp;<input type="text" placeholder="请选择您的车辆型号" class="car_select"/><br />
+			<label for="">您的姓名：</label>&nbsp;&nbsp;<input type="text" placeholder="请填写您的姓名"/><br />
+			<label for="">您的手机号：</label><input type="text" placeholder="请输入手机号，便于我们联系您" class="phone_num"/><br />
+			<label for="">短信验证码：</label><input type="text" placeholder="请输入收到的短信验证码" maxlength="6"/>&nbsp;&nbsp;<input type="button" value="获取验证码" class="btn"/><br />
+			<label for="">所在地区：</label>
+		</div>
+		<div class="container dis_none">
+			<!--城市索引查询-->
+			<div class="letter">
+			    <ul></ul>
+			</div>
+		  	<div class="city"></div>
+		</div>
+		<ul id="show_car" class="show_car dis_none"></ul>
+	</div>
+
+<script src="jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="city.js"></script>
+</body>
+</html>
+
