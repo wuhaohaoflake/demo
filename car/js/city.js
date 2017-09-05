@@ -44,6 +44,7 @@ $(function () {
 				var lists="<li><a href=#"+item.name+"1>"+item.name+"</a></li>";
 				var lis= "<div class='city-list'><span class='city-letter' id="+item.name+"1>"+item.name+"</span>";
 				var ps="";
+				console.log(item);
 				for(var i=0;i<item.carlist.length;i++){
 					 ps+="<p data-name="+ item.carlist[i].name +">"+item.carlist[i].name+"</p>";
 				}
